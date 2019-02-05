@@ -113,11 +113,18 @@ var vm = new Vue({
 					randomNums: []
 				}
 			],
-			randomAmount: 10
+			randomAmount: 1,
+			sidepanelToggle: true,
+			windowWidth: 1000
 		}
 	},
 	mounted() {
 		this.randomAll()
+
+		this.windowWidth = innerWidth
+		window.addEventListener('resize', event => {
+			this.windowWidth = innerWidth
+		})
 	},
 	methods: {
 		randomFromList(list) {
@@ -147,6 +154,9 @@ var vm = new Vue({
 						...wordlist
 					}
 				})
+		},
+		hideSidepanel() {
+			return !this.sidepanelToggle && this.windowWidth < 1000
 		}
 	}
 })

@@ -9,28 +9,45 @@
 	</head>
 	<body>
 		<div id="app">
-			<div id="settings">
-				<h3>
-					Randomize
-					<button @click="randomAll" class="randomAll">
-						↺
+			<div id="settings" :class="{hideSidepanel: hideSidepanel}">
+				<div id="settingsScroll">
+					<button
+						class="toggle"
+						@click="sidepanelToggle = !sidepanelToggle"
+					>
+						<span class="icon">⇽</span>
 					</button>
-				</h3>
-				<h3>Aktive kategorier</h3>
-				<ul id="activator">
-					<li v-for="wordlist in wordlists">
-						<label>
-							<input type="checkbox" v-model="wordlist.active" />
-							<span>{{ wordlist.name }}</span>
-						</label>
-					</li>
-				</ul>
-				<h3>Words pr. category</h3>
-				<label>
-					<input type="text" v-model="randomAmount" />
-				</label>
+					<h3>
+						Randomize
+						<button @click="randomAll" class="randomAll">
+							↺
+						</button>
+					</h3>
+					<h3>Categories</h3>
+					<ul id="activator">
+						<li v-for="wordlist in wordlists">
+							<label>
+								<input
+									type="checkbox"
+									v-model="wordlist.active"
+								/>
+								<span
+									class="checkbox"
+									:class="{active :wordlist.active}"
+								>
+									<span></span>
+								</span>
+								<span>{{ wordlist.name }}</span>
+							</label>
+						</li>
+					</ul>
+					<h3>Words pr. category</h3>
+					<label>
+						<input type="text" v-model.number="randomAmount" />
+					</label>
+				</div>
 			</div>
-			<ul id="lists">
+			<ul id="lists" :class="{sidepanelOpen: hideSidepanel}">
 				<li v-for="wordlist in randomWordlists" class="wordlist">
 					<h4>
 						<span class="name">{{ wordlist.name }}</span
