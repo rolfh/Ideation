@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Ideation</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div id="settings">
+				<h3>
+					Randomize
+					<button @click="randomAll" class="randomAll">
+						↺
+					</button>
+				</h3>
+				<h3>Aktive kategorier</h3>
+				<ul id="activator">
+					<li v-for="wordlist in wordlists">
+						<label>
+							<input type="checkbox" v-model="wordlist.active" />
+							<span>{{ wordlist.name }}</span>
+						</label>
+					</li>
+				</ul>
+				<h3>Words pr. category</h3>
+				<label>
+					<input type="text" v-model="randomAmount" />
+				</label>
+			</div>
+			<ul id="lists">
+				<li v-for="wordlist in randomWordlists" class="wordlist">
+					<h4>
+						<span class="name">{{ wordlist.name }}</span
+						><button
+							@click="randomFromList(wordlist)"
+							class="randomNumBtn"
+						>
+							↺
+						</button>
+					</h4>
+					<ul v-if="!wordlist.isColor">
+						<li v-for="word in wordlist.filtered">{{ word }}</li>
+					</ul>
+					<ul v-else class="color">
+						<li v-for="word in wordlist.filtered">
+							<span
+								class="color-swatch"
+								:style="{background: word.color}"
+							></span>
+							<span class="color-title">{{
+								word.name.toLowerCase()
+							}}</span>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="data/animals.js"></script>
+		<script src="data/boys.js"></script>
+		<script src="data/colors.js"></script>
+		<script src="data/design.js"></script>
+		<script src="data/emotions.js"></script>
+		<script src="data/galaxies.js"></script>
+		<script src="data/girls.js"></script>
+		<script src="data/greekgods.js"></script>
+		<script src="data/lakes.js"></script>
+		<script src="data/marketing.js"></script>
+		<script src="data/mountains.js"></script>
+		<script src="data/nationalparks.js"></script>
+		<script src="data/norsegods.js"></script>
+		<script src="data/periodictable.js"></script>
+		<script src="data/programming.js"></script>
+		<script src="data/scientists.js"></script>
+		<script src="data/stars.js"></script>
+		<script src="data/trees.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
