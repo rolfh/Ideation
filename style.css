@@ -26,7 +26,7 @@ body {
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-  background: #7d7d7d;
+  background: #585858;
   color: white;
   width: 40px;
   height: 35px;
@@ -130,7 +130,7 @@ h4 {
   margin: 0 0 7px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #2900d6;
+  color: #1b7cd2;
 }
 ul {
   list-style: none;
@@ -196,11 +196,10 @@ ul li {
   opacity: 1;
 }
 .randomAll {
-  background: #b0b0b0;
-  background: #7d7d7d;
+  background: #1b7cd2;
   color: white;
   font-size: 19px;
   opacity: 1;
-  width: 35px;
+  width: 80px;
   height: 35px;
 }
