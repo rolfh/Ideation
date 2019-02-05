@@ -5,110 +5,110 @@ var vm = new Vue({
 			wordlists: [
 				{
 					name: 'Animals',
-					list: animals,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Boys',
-					list: boys,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Colors',
-					list: colors,
+					list: [],
 					active: true,
 					randomNums: [],
 					isColor: true
 				},
 				{
 					name: 'Design',
-					list: design,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Emotions',
-					list: emotions,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Galaxies',
-					list: galaxies,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Girls',
-					list: girls,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Greekgods',
-					list: greekgods,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Lakes',
-					list: lakes,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Marketing',
-					list: marketing,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Mountains',
-					list: mountains,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Nationalparks',
-					list: nationalparks,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Norsegods',
-					list: norsegods,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Periodictable',
-					list: periodictable,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Programming',
-					list: programming,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Scientists',
-					list: scientists,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Stars',
-					list: stars,
+					list: [],
 					active: true,
 					randomNums: []
 				},
 				{
 					name: 'Trees',
-					list: trees,
+					list: [],
 					active: true,
 					randomNums: []
 				}
@@ -124,6 +124,13 @@ var vm = new Vue({
 		this.windowWidth = innerWidth
 		window.addEventListener('resize', event => {
 			this.windowWidth = innerWidth
+		})
+		this.wordlists.map(async wordlist => {
+			var jsonData = await fetch(
+				'./json/' + wordlist.name.toLowerCase() + '.json'
+			)
+			var result = await jsonData.json()
+			wordlist.list = result
 		})
 	},
 	methods: {

@@ -59,7 +59,7 @@ body {
 }
 #settings #settingsScroll {
   overflow-y: auto;
-  padding: 0 20px 20px;
+  padding: 10px 30px 30px;
   height: 100%;
 }
 .title {
@@ -72,8 +72,8 @@ input[type='numbers'] {
   display: block;
   padding: 10px 20px;
   font-size: 20px;
-  border: none;
-  border-radius: 2px;
+  border: 1px solid #c8c8c8;
+  border-radius: 3px;
   text-align: right;
 }
 #activator {
@@ -130,7 +130,7 @@ h4 {
   margin: 0 0 7px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #1b7cd2;
+  color: #0172d5;
 }
 ul {
   list-style: none;
@@ -170,15 +170,15 @@ ul li {
 }
 .randomNumBtn,
 .randomAll {
-  opacity: 0.5;
   border-radius: 100px;
-  width: 25px;
+  swidth: 25px;
   height: 25px;
   margin-left: 6px;
   vertical-align: middle;
   text-align: center;
   border: none;
   background: #f4f4f4;
+  font-size: 15px;
 }
 .randomNumBtn:hover,
 .randomAll:hover,
@@ -192,11 +192,8 @@ ul li {
 .wordlist {
   margin: 0;
 }
-.wordlist:hover .randomNumBtn {
-  opacity: 1;
-}
 .randomAll {
-  background: #1b7cd2;
+  background: #0172d5;
   color: white;
   font-size: 19px;
   opacity: 1;
