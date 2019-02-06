@@ -82,10 +82,25 @@ input[type='numbers'] {
 	label {
 		padding: 0;
 		display: block;
+		> span {
+			vertical-align: middle;
+		}
 	}
 	input[type='checkbox'] {
-		// opacity: 0;
-		display: none;
+		opacity: 0;
+		position: absolute;
+		&:focus {
+			+ span {
+				border-color: #0096ed;
+				background: #eaf7ff;
+				span {
+					border-color: #0096ed;
+				}
+			}
+			~ span {
+				color: #0096ed;
+			}
+		}
 	}
 	.checkbox {
 		width: 18px;

@@ -1,10 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
+}
 body {
   font-family: 'Roboto', sans-serif;
   margin: 30px;
 }
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 #settings {
   position: fixed;
@@ -15,7 +27,10 @@ body {
   width: 300px;
   background-color: #f4f4f4;
   font-size: 20px;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
 }
 #settings ul {
   margin: 0 0 10px;
@@ -24,8 +39,12 @@ body {
   position: absolute;
   top: 20px;
   left: 0;
-  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
   transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
   background: #585858;
   color: white;
   width: 40px;
@@ -39,7 +58,8 @@ body {
   background: #2900d6;
 }
 #settings .toggle .icon {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
   display: block;
 }
 @media (min-width: 1000px) {
@@ -49,13 +69,16 @@ body {
   }
 }
 #settings.hideSidepanel {
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
 #settings.hideSidepanel .toggle {
-  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
 }
 #settings.hideSidepanel .toggle .icon {
-  transform: rotate(0);
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
 }
 #settings #settingsScroll {
   overflow-y: auto;
@@ -84,8 +107,22 @@ input[type='numbers'] {
   padding: 0;
   display: block;
 }
+#activator label > span {
+  vertical-align: middle;
+}
 #activator input[type='checkbox'] {
-  display: none;
+  opacity: 0;
+  position: absolute;
+}
+#activator input[type='checkbox']:focus + span {
+  border-color: #0096ed;
+  background: #eaf7ff;
+}
+#activator input[type='checkbox']:focus + span span {
+  border-color: #0096ed;
+}
+#activator input[type='checkbox']:focus ~ span {
+  color: #0096ed;
 }
 #activator .checkbox {
   width: 18px;
@@ -98,9 +135,13 @@ input[type='numbers'] {
   overflow: hidden;
 }
 #activator .checkbox span {
+  -webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.25s ease-out;
+  transition: opacity 0.2s ease-out, -webkit-transform 0.25s ease-out;
   transition: opacity 0.2s ease-out, transform 0.25s ease-out;
+  transition: opacity 0.2s ease-out, transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
   opacity: 0;
-  transform: translate(5px, 7px) rotate(45deg);
+  -webkit-transform: translate(5px, 7px) rotate(45deg);
+          transform: translate(5px, 7px) rotate(45deg);
   width: 5px;
   height: 9px;
   border: 2px solid black;
@@ -110,6 +151,7 @@ input[type='numbers'] {
 }
 #activator .checkbox + span {
   opacity: 0.5;
+  -webkit-transition: opacity 0.2s ease-out;
   transition: opacity 0.2s ease-out;
 }
 #activator .checkbox.active + span {
@@ -117,7 +159,8 @@ input[type='numbers'] {
 }
 #activator .checkbox.active span {
   opacity: 1;
-  transform: translate(5px, 2px) rotate(45deg);
+  -webkit-transform: translate(5px, 2px) rotate(45deg);
+          transform: translate(5px, 2px) rotate(45deg);
 }
 h3 {
   font-size: 20px;
