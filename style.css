@@ -45,9 +45,13 @@ body {
   outline: none;
 }
 #app {
-  margin-right: 300px;
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
+}
+@media (min-width: 1200px), (min-width: 992px) and (max-width: 1199px), (min-width: 768px) and (max-width: 991px) {
+  #app {
+    margin-right: 300px;
+  }
 }
 #app.hideSidepanel {
   margin-right: 0;
@@ -317,6 +321,11 @@ ul li {
 .randomAll:active {
   background: #2900d6;
   color: white;
+}
+@media (min-width: 551px) and (max-width: 767px), (min-width: 321px) and (max-width: 550px), (max-width: 320px) {
+  #settings-new-name {
+    display: none;
+  }
 }
 .wordlist {
   margin: 0;
