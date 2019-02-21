@@ -141,7 +141,8 @@ var vm = new Vue({
 			nameList1: 0,
 			nameIndex1: 0,
 			nameList2: 0,
-			nameIndex2: 0
+			nameIndex2: 0,
+			mouseMode: true
 		}
 	},
 	mounted() {
@@ -167,6 +168,8 @@ var vm = new Vue({
 		})
 
 		document.addEventListener('keydown', this.keydown)
+
+		document.addEventListener('click', this.mouseDown)
 
 		this.getNames()
 	},
@@ -206,11 +209,18 @@ var vm = new Vue({
 				'NumpadEnter',
 				'n'
 			]
-			// console.log(event.code)
+			console.log(event.code)
 			if (keys.includes(event.code)) {
 				event.preventDefault()
 				this.getNames()
 			}
+
+			if (event.code == 'Tab') {
+				this.mouseMode = false
+			}
+		},
+		mouseDown() {
+			this.mouseMode = true
 		}
 	},
 	computed: {

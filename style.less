@@ -17,6 +17,18 @@ body {
 * {
 	box-sizing: border-box;
 }
+.mouse-mode {
+	button,
+	input,
+	a,
+	text-area {
+		&:hover,
+		&:focus,
+		&:active {
+			outline: none;
+		}
+	}
+}
 #app {
 	margin-right: 300px;
 	transition: 0.2s ease-out;
@@ -93,14 +105,21 @@ input[type='numbers'] {
 	border-radius: 3px;
 	text-align: right;
 }
-.align-right {
+.mobileRandomAll {
 	@media @xxl, @xl, @l {
 		display: none;
 	}
-	@media @m, @s, @xs {
-		text-align: right;
-		padding-right: 15px;
-		margin-bottom: 0;
+	// text-align: right;
+	// padding-right: 15px;
+	margin: 0 15px 10px !important;
+	padding: 0 15px;
+	button {
+		width: 100%;
+		margin: 0;
+		height: auto;
+		padding: 15px 20px;
+		font-weight: 300;
+		font-size: 25px;
 	}
 }
 #newName {
@@ -112,7 +131,8 @@ input[type='numbers'] {
 	@media @m, @s, @xs {
 		font-size: 40px;
 		padding: 100px 20px;
-		height: calc(100vh - 150px);
+		height: calc(100vh - 165px);
+		margin-bottom: 20px;
 	}
 	color: white;
 	color: #343434;

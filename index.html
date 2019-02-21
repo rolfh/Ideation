@@ -14,7 +14,10 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	</head>
 	<body>
-		<div id="app" :class="{hideSidepanel: hideSidepanel}">
+		<div
+			id="app"
+			:class="{hideSidepanel: hideSidepanel, 'mouse-mode': mouseMode}"
+		>
 			<div id="settings">
 				<div id="settingsScroll">
 					<button
@@ -63,10 +66,9 @@
 				<div id="newNameIcon"><img :src="icon" /></div>
 				<div id="newNameName">{{ name }}</div>
 			</h1>
-			<div class="h3 align-right">
-				New name
-				<button @click="getNames" class="randomAll">
-					↺
+			<div class="h3 align-right mobileRandomAll">
+				<button @click="getNames" class="randomAll ">
+					New name
 				</button>
 			</div>
 			<ul id="lists">

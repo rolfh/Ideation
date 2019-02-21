@@ -30,6 +30,20 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+.mouse-mode button:hover,
+.mouse-mode input:hover,
+.mouse-mode a:hover,
+.mouse-mode text-area:hover,
+.mouse-mode button:focus,
+.mouse-mode input:focus,
+.mouse-mode a:focus,
+.mouse-mode text-area:focus,
+.mouse-mode button:active,
+.mouse-mode input:active,
+.mouse-mode a:active,
+.mouse-mode text-area:active {
+  outline: none;
+}
 #app {
   margin-right: 300px;
   -webkit-transition: 0.2s ease-out;
@@ -119,17 +133,22 @@ input[type='numbers'] {
   border-radius: 3px;
   text-align: right;
 }
+.mobileRandomAll {
+  margin: 0 15px 10px !important;
+  padding: 0 15px;
+}
 @media (min-width: 1200px), (min-width: 992px) and (max-width: 1199px), (min-width: 768px) and (max-width: 991px) {
-  .align-right {
+  .mobileRandomAll {
     display: none;
   }
 }
-@media (min-width: 551px) and (max-width: 767px), (min-width: 321px) and (max-width: 550px), (max-width: 320px) {
-  .align-right {
-    text-align: right;
-    padding-right: 15px;
-    margin-bottom: 0;
-  }
+.mobileRandomAll button {
+  width: 100%;
+  margin: 0;
+  height: auto;
+  padding: 15px 20px;
+  font-weight: 300;
+  font-size: 25px;
 }
 #newName {
   text-align: center;
@@ -161,7 +180,8 @@ input[type='numbers'] {
   #newName {
     font-size: 40px;
     padding: 100px 20px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 165px);
+    margin-bottom: 20px;
   }
 }
 #newName #newNameIcon img {
