@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
 @import url('https://fonts.googleapis.com/css?family=Barlow:700');
+
+@xxl: ~'(min-width: 1200px)';
+@xl: ~'(min-width: 992px) and (max-width: 1199px)';
+@l: ~'(min-width: 768px) and (max-width: 991px)';
+@m: ~'(min-width: 551px) and (max-width: 767px)';
+@s: ~'(min-width: 321px) and (max-width: 550px)';
+@xs: ~'(max-width: 320px)';
+
 @primary: #0172d5;
+
 body {
 	font-family: 'Roboto', sans-serif;
 	// margin: 30px;
@@ -85,12 +94,26 @@ input[type='numbers'] {
 	border-radius: 3px;
 	text-align: right;
 }
+.align-right {
+	@media @xxl, @xl, @l {
+		display: none;
+	}
+	@media @m, @s, @xs {
+		text-align: right;
+		padding-right: 15px;
+	}
+}
 #newName {
 	text-align: center;
 	text-transform: capitalize;
 	padding: 150px 0;
 	margin: 0 0 30px 0;
 	font-size: 65px;
+	@media @m, @s, @xs {
+		font-size: 40px;
+		padding: 100px 20px;
+		height: calc(100vh - 100px);
+	}
 	color: white;
 	color: #343434;
 	background: #0031ff;
@@ -166,7 +189,8 @@ input[type='numbers'] {
 	}
 }
 
-h3 {
+h3,
+.h3 {
 	font-size: 20px;
 	font-weight: 500;
 	margin: 20px 0 7px;

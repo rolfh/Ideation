@@ -134,7 +134,7 @@ var vm = new Vue({
 				}
 			],
 			randomAmount: 1,
-			sidepanelToggle: true,
+			sidepanelToggle: false,
 			windowWidth: 1000,
 			iconList: 3,
 			iconIndex: 34,

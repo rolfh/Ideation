@@ -113,6 +113,17 @@ input[type='numbers'] {
   border-radius: 3px;
   text-align: right;
 }
+@media (min-width: 1200px), (min-width: 992px) and (max-width: 1199px), (min-width: 768px) and (max-width: 991px) {
+  .align-right {
+    display: none;
+  }
+}
+@media (min-width: 551px) and (max-width: 767px), (min-width: 321px) and (max-width: 550px), (max-width: 320px) {
+  .align-right {
+    text-align: right;
+    padding-right: 15px;
+  }
+}
 #newName {
   text-align: center;
   text-transform: capitalize;
@@ -132,6 +143,13 @@ input[type='numbers'] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+@media (min-width: 551px) and (max-width: 767px), (min-width: 321px) and (max-width: 550px), (max-width: 320px) {
+  #newName {
+    font-size: 40px;
+    padding: 100px 20px;
+    height: calc(100vh - 100px);
+  }
 }
 #newName #newNameIcon img {
   width: 150px;
@@ -199,7 +217,8 @@ input[type='numbers'] {
   -webkit-transform: translate(5px, 2px) rotate(45deg);
           transform: translate(5px, 2px) rotate(45deg);
 }
-h3 {
+h3,
+.h3 {
   font-size: 20px;
   font-weight: 500;
   margin: 20px 0 7px;

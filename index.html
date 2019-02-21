@@ -63,6 +63,12 @@
 				<div id="newNameIcon"><img :src="icon" /></div>
 				<div id="newNameName">{{ name }}</div>
 			</h1>
+			<div class="h3 align-right">
+				New name
+				<button @click="getNames" class="randomAll">
+					↺
+				</button>
+			</div>
 			<ul id="lists">
 				<li v-for="wordlist in randomWordlists" class="wordlist">
 					<h4>
