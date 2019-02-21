@@ -14,8 +14,8 @@
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	</head>
 	<body>
-		<div id="app">
-			<div id="settings" :class="{hideSidepanel: hideSidepanel}">
+		<div id="app" :class="{hideSidepanel: hideSidepanel}">
+			<div id="settings">
 				<div id="settingsScroll">
 					<button
 						class="toggle"
@@ -23,6 +23,12 @@
 					>
 						<span class="icon">⇽</span>
 					</button>
+					<h3>
+						New name
+						<button @click="getNames" class="randomAll">
+							↺
+						</button>
+					</h3>
 					<h3>
 						Randomize
 						<button @click="randomAll" class="randomAll">
@@ -53,7 +59,11 @@
 					</label>
 				</div>
 			</div>
-			<ul id="lists" :class="{sidepanelOpen: hideSidepanel}">
+			<h1 id="newName">
+				<div id="newNameIcon"><img :src="icon" /></div>
+				<div id="newNameName">{{ name }}</div>
+			</h1>
+			<ul id="lists">
 				<li v-for="wordlist in randomWordlists" class="wordlist">
 					<h4>
 						<span class="name">{{ wordlist.name }}</span

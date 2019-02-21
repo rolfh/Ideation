@@ -59,12 +59,6 @@ var vm = new Vue({
 					randomNums: []
 				},
 				{
-					name: 'Marketing',
-					list: [],
-					active: true,
-					randomNums: []
-				},
-				{
 					name: 'Mountains',
 					list: [],
 					active: true,
@@ -113,9 +107,41 @@ var vm = new Vue({
 					randomNums: []
 				}
 			],
+			imgLists: [
+				{
+					name: 'creative',
+					list: [],
+					active: true,
+					randomNums: []
+				},
+				{
+					name: 'gastro',
+					list: [],
+					active: true,
+					randomNums: []
+				},
+				{
+					name: 'pokemon',
+					list: [],
+					active: true,
+					randomNums: []
+				},
+				{
+					name: 'space',
+					list: [],
+					active: true,
+					randomNums: []
+				}
+			],
 			randomAmount: 1,
 			sidepanelToggle: true,
-			windowWidth: 1000
+			windowWidth: 1000,
+			iconList: 3,
+			iconIndex: 34,
+			nameList1: 0,
+			nameIndex1: 0,
+			nameList2: 0,
+			nameIndex2: 0
 		}
 	},
 	mounted() {
@@ -132,6 +158,17 @@ var vm = new Vue({
 			var result = await jsonData.json()
 			wordlist.list = result
 		})
+		this.imgLists.map(async imglist => {
+			var jsonData = await fetch(
+				'./json/svg-' + imglist.name.toLowerCase() + '.json'
+			)
+			var result = await jsonData.json()
+			imglist.list = result
+		})
+
+		document.addEventListener('keydown', this.keydown)
+
+		this.getNames()
 	},
 	methods: {
 		randomFromList(list) {
@@ -147,6 +184,33 @@ var vm = new Vue({
 		},
 		randomAll() {
 			this.wordlists.forEach(wordlist => this.randomFromList(wordlist))
+		},
+		getNames() {
+			this.randomIcon()
+
+			this.nameList1 = random(this.wordlists)
+			this.nameIndex1 = random(this.wordlists[this.nameList1].list)
+			this.nameList2 = random(this.wordlists)
+			this.nameIndex2 = random(this.wordlists[this.nameList2].list)
+		},
+		randomIcon() {
+			this.iconList = random(this.imgLists)
+			this.iconIndex = random(this.imgLists[this.iconList].list)
+		},
+		keydown(event) {
+			var keys = [
+				'Space',
+				'ArrowLeft',
+				'ArrowRight',
+				'Enter',
+				'NumpadEnter',
+				'n'
+			]
+			// console.log(event.code)
+			if (keys.includes(event.code)) {
+				event.preventDefault()
+				this.getNames()
+			}
 		}
 	},
 	computed: {
@@ -164,6 +228,29 @@ var vm = new Vue({
 		},
 		hideSidepanel() {
 			return !this.sidepanelToggle && this.windowWidth < 1000
+		},
+		icon() {
+			return (
+				'./svg/' +
+				this.imgLists[this.iconList].name +
+				'/' +
+				this.imgLists[this.iconList].list[this.iconIndex]
+			)
+		},
+		name() {
+			var name1 = this.wordlists[this.nameList1].isColor
+				? this.wordlists[this.nameList1].list[this.nameIndex1].name
+				: this.wordlists[this.nameList1].list[this.nameIndex1]
+
+			var name2 = this.wordlists[this.nameList2].isColor
+				? this.wordlists[this.nameList2].list[this.nameIndex2].name
+				: this.wordlists[this.nameList2].list[this.nameIndex2]
+
+			return name1 + ' ' + name2
 		}
 	}
 })
+
+function random(list) {
+	return Math.floor(Math.random() * list.length)
+}
