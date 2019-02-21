@@ -1,4 +1,16 @@
 @font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Barlow Bold'), local('Barlow-Bold'), url(https://fonts.gstatic.com/s/barlow/v3/7cHqv4kjgoGqM7E3t-4s51op.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -9,12 +21,6 @@
   font-style: normal;
   font-weight: 500;
   src: local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc9.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Barlow';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Barlow Bold'), local('Barlow-Bold'), url(https://fonts.gstatic.com/s/barlow/v3/7cHqv4kjgoGqM7E3t-4s51op.ttf) format('truetype');
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -128,15 +134,18 @@ input[type='numbers'] {
 #newName {
   text-align: center;
   text-transform: capitalize;
-  padding: 150px 0;
-  margin: 0 0 30px 0;
+  padding: 150px 30px;
+  margin: 0 0 30px;
   font-size: 65px;
   color: white;
   color: #343434;
   background: #0031ff;
   background: linear-gradient(-135deg, #00f094, #000da6);
   background: linear-gradient(-135deg, #fff86b, #41d3ff);
-  font-weight: 400;
+  background: linear-gradient(-135deg, #ff5c5c, #f5f159);
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#e4e4e4));
+  background: linear-gradient(white, #e4e4e4);
+  font-weight: 300;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,6 +153,9 @@ input[type='numbers'] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (min-width: 551px) and (max-width: 767px), (min-width: 321px) and (max-width: 550px), (max-width: 320px) {
   #newName {
